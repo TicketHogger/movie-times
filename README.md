@@ -36,39 +36,47 @@ npm install
 
 ## Operationalize app 
 
+- npm install
+
+For Database:
 - Use below command if you have password for mysql:
-	- mysql -u <password> -p
+	- mysql -u 'inout your password' -p
 
- 	otherwise use following:
- 	- mysql -u root to start mysql commands 
-
+ 	otherwise use following to start mysql command line (to verify db, table and seed data):
+ 	- mysql -u root  
 - create database and seed: (seed data is in schema.sql itself)
   mysql -u root < schema.sql
+
+OR
+- npm run seed
+
+Build and start the app:
 - npm run watch
-- npm run
+- npm run server
 
 # CRUD Server Side Documentation
 
 
 |Action | Request| Route | Purpose|
 |-------|--------|-------|--------|
-|Create |  Post  | /api/moviesbyid/:movieid | Insert new movie record|
-|ReadAll|  GET   | /api/moviesbyid | Get all movies|
-|Update | PUT    | /api/moviesbyid/:movieid | Update movietimes with new movie|
+|Create | Post  | /api/moviesbyid/:movieid/:date/:location | Insert new movie record|
+|ReadAll| GET   | /api/moviesbyid | Get all movies|
+|Update | PUT    | /api/moviesbyid/:movieid/:date/:location | Update movietimes with new movie|
 |Delete | DELETE | //api/moviesbyid/:movieid | Delete movie from movietimes|
 
-## GET/READALL REQUESTS:
-- req.body requirements: [None]
-- Response: movie data
-
-## CREATE/POST REQUESTS:
+## POST (Create) REQUESTS:
 - req.body requirements: [movie, theater, address, date, latitude, longitude, times]
 - Response: [None]
 
-## UPDATE/PATCH REQUESTS:
-- req.body requirements: [id, movie, theater, address]
+## GET (ReadAll) REQUESTS:
+- req.body requirements: [None]
+- Response: movie data
+
+
+## PATCH (Update) REQUESTS:
+- req.body requirements: [id, movie, theater, address, date, latitude, longitude, times]
 - Response: [None]
 
-## DELETE REQUESTS:
+## DELETE (Delete) REQUESTS:
 - req.body requirements: [id]
 - Response: [None]
