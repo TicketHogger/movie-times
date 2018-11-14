@@ -40,7 +40,7 @@ npm install
 
 For Database:
 - Use below command if you have password for mysql:
-	- mysql -u 'inout your password' -p
+	- mysql -u 'input your password' -p
 
  	otherwise use following to start mysql command line (to verify db, table and seed data):
  	- mysql -u root  
@@ -60,7 +60,7 @@ Build and start the app:
 |Action | Request| Route | Purpose|
 |-------|--------|-------|--------|
 |Create | Post  | /api/moviesbyid/:movieid/:date/:location | Insert new movie record|
-|ReadAll| GET   | /api/moviesbyid | Get all movies|
+|ReadOne| GET   | /api/moviesbyid | Get one movie|
 |Update | PUT    | /api/moviesbyid/:movieid/:date/:location | Update movietimes with new movie|
 |Delete | DELETE | //api/moviesbyid/:movieid | Delete movie from movietimes|
 
