@@ -41,7 +41,6 @@ app.use(morgan("default"));
 // });
 
 app.get('/api/moviesbyid/:movieid/:date/:location', (req, res) => {
-  console.log("req", req.params);
   const querystring = 'SELECT * FROM MovieTimes WHERE movie_id = (?) AND date = (?)';
   connection.query(querystring, [req.params.movieid, req.params.date], (error, result) => {
     if (error) {
@@ -58,6 +57,58 @@ app.get('/api/moviesbyid/:movieid/:date/:location', (req, res) => {
       }
     }
     res.send(newResult);
+  });
+});
+
+//ReadOne record
+app.get('/api/moviesbyid/:movieid', (req, res) => {
+  const querystring = 'SELECT * FROM MovieTimes WHERE id = (?)';
+  connection.query(querystring, [req.params.movieid], (error, result) => {
+    if (error) {
+      res.send(error);
+    }
+    res.send();
+  });
+});
+
+app.patch('/api/moviesbyid/:movieid', function(request, response) {
+  // access the body of the request to get the vote name
+  // query the database with an update
+  const querystring = 'UPDATE MovieTimes SET movie = movie, theater = theater, Address = Address, latitude = latitude, longitude = longitude, times = times  WHERE id = ?';
+  connection.query(querystring, [request.body.movieid], function(error) {
+    if(error) {
+      response.status(500).send(error.message);
+    } else {
+      // end the response
+      response.end();
+    }
+  });
+});
+
+
+app.post('/api/moviesbyid', function(request, response) {
+  connection.query(`INSERT into MovieTimes (movie, theater, Address, Date, latitude, longitude, times) VALUES (?, ?, ?, ?, ?, ?, ?)`, [request.body.movie, request.body.theater, request.body.Address, request.body.Date, request.body.latititude, request.body.longitude, request.body.times], function(error) {
+    if(error) {
+      response.status(500).send(error.message);
+    } else {
+      // end the response
+      response.end();
+    }
+  });
+});
+
+
+app.delete('/api/moviesbyid/:movieid', function(request, response) {
+  // access the body of the request to get the vote name
+  // query the database with an update
+  const querystring = 'DELETE from MovieTimes WHERE id = ?';
+  connection.query(querystring, [request.body.movieid], function(error) {
+    if(error) {
+      response.status(500).send(error.message);
+    } else {
+      // end the response
+      response.end();
+    }
   });
 });
 
