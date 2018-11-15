@@ -59,21 +59,21 @@ Build and start the app:
 
 |Action | Request| Route | Purpose|
 |-------|--------|-------|--------|
-|Create | Post  | /api/moviesbyid/:movieid/:date/:location | Insert new movie record|
-|ReadOne| GET   | /api/moviesbyid | Get one movie|
-|Update | PUT    | /api/moviesbyid/:movieid/:date/:location | Update movietimes with new movie|
-|Delete | DELETE | //api/moviesbyid/:movieid | Delete movie from movietimes|
+|Create | Post  | /api/moviesbyid| Insert new movie record|
+|ReadOne| GET   | /api/moviesbyid/:movieid | Get one movie|
+|Update | PUT    | /api/moviesbyid/:movieid | Update movietimes with new movie|
+|Delete | DELETE | /api/moviesbyid/:movieid | Delete movie from movietimes|
 
 ## POST (Create) REQUESTS:
 - req.body requirements: [movie, theater, address, date, latitude, longitude, times]
 - Response: [None]
 
-## GET (ReadAll) REQUESTS:
-- req.body requirements: [None]
+## GET (ReadOne) REQUESTS: 
+- req.body requirements: [id]
 - Response: movie data
 
 
-## PATCH (Update) REQUESTS:
+## PUT (Update) REQUESTS:
 - req.body requirements: [id, movie, theater, address, date, latitude, longitude, times]
 - Response: [None]
 

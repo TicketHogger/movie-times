@@ -71,7 +71,7 @@ app.get('/api/moviesbyid/:movieid', (req, res) => {
   });
 });
 
-app.patch('/api/moviesbyid/:movieid', function(request, response) {
+app.put('/api/moviesbyid/:movieid', function(request, response) {
   // access the body of the request to get the vote name
   // query the database with an update
   const querystring = 'UPDATE MovieTimes SET movie = movie, theater = theater, Address = Address, latitude = latitude, longitude = longitude, times = times  WHERE id = ?';
