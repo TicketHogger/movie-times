@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const server = require('../server.js');
+const server = require('../server/server.js');
 
 test('should serve data when the index endpoint is hit', (done) => {
     // I understand we should not normally test static files, but

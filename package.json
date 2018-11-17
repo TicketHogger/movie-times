@@ -1,5 +1,5 @@
 {
-  "name": "neil_vodoor",
+  "name": "rao_guttula",
   "version": "",
   "description": "",
   "author": "",
@@ -13,10 +13,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "mysql -u root < schema.sql",
+    "seed": "mysql -u root < ./model-mysql/schema.sql",
+    "csv": "nodemon ./data/seedFileCreate.js",
     "test": "jest --coverage",
     "watch": "webpack -w",
-    "server": "nodemon server.js"
+    "server": "nodemon ./server/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
@@ -37,6 +38,7 @@
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.4",
+    "pg": "^7.6.1",
     "prop-types": "^15.6.2",
     "puppeteer": "^1.9.0",
     "react": "^16.6.0",
