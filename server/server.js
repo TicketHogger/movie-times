@@ -15,30 +15,30 @@ const connection = mysql.createConnection({
 connection.connect();
 
 app.use(parser.json());
-app.use(express.static(path.join(__dirname+'/public')));
+app.use(express.static(path.join(__dirname +'./../public')));
 app.use(morgan("default"));
 
 // not rendered
-// app.get('/api/movies/:movie/:date/:location', (req, res) => {
-//   let querystring = 'SELECT * FROM MovieTimes WHERE movie = (?) AND date = (?)';
-//   connection.query(querystring, [req.params.movie, req.params.date], (error, result) => {
-//     if (error) {
-//       res.send(error);
-//     }
-//     const newResult = []
-//     const coords = req.params.location.split(',')
-//     const lat = coords[0]
-//     const long = coords[1]
+app.get('/api/movies/:movie/:date/:location', (req, res) => {
+  let querystring = 'SELECT * FROM MovieTimes WHERE movie = (?) AND date = (?)';
+  connection.query(querystring, [req.params.movie, req.params.date], (error, result) => {
+    if (error) {
+      res.send(error);
+    }
+    const newResult = []
+    const coords = req.params.location.split(',')
+    const lat = coords[0]
+    const long = coords[1]
 
-//     for (var i = 0; i < result.length; i++) {
-//       if (Math.abs(lat-result[i].latitude) < 75 && Math.abs(long-result[i].longitude) < 75) {
-//         newResult.push(result[i]);
-//       }
-//     }
-//     res.send(newResult);
-//   });
+    for (var i = 0; i < result.length; i++) {
+      if (Math.abs(lat-result[i].latitude) < 75 && Math.abs(long-result[i].longitude) < 75) {
+        newResult.push(result[i]);
+      }
+    }
+    res.send(newResult);
+  });
 
-// });
+});
 
 app.get('/api/moviesbyid/:movieid/:date/:location', (req, res) => {
   const querystring = 'SELECT * FROM MovieTimes WHERE movie_id = (?) AND date = (?)';
