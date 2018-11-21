@@ -29,5 +29,9 @@ coverage
 build/
 dist/
 
+*.err*
+
+model-cql/import_*
+
 data/seedFileCreate.csv
 data/seedFileCreate1.csv
