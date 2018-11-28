@@ -1,6 +1,6 @@
--- CREATE DATABASE IF NOT EXISTS movietimesdb;
+CREATE DATABASE IF NOT EXISTS movietimesdb;
 
--- \connect movietimesdb;
+\connect movietimesdb;
 
 CREATE TABLE MovieTimes (
     id SERIAL NOT NULL PRIMARY KEY,
