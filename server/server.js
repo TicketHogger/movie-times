@@ -11,11 +11,15 @@ require('newrelic');
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-  user: 'rao',
-  host: 'localhost',
+  user: 'postgres',
+  host: '54.185.18.177',
   database: 'movietimesdb',
 });
-
+// const pool = new Pool({
+//   user: 'rao',
+//   host: 'localhost',
+//   database: 'movietimesdb',
+// });
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
     console.log('error from server.js line 21>>>', err);
@@ -26,8 +30,8 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 const client = new Client({
-  user: 'rao',
-  host: 'localhost',
+  user: 'postgres',
+  host: '54.185.18.177',
   database: 'movietimesdb',
 });
 client.connect();
