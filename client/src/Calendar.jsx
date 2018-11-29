@@ -8,14 +8,14 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '2018-10-24',
-      movie: 'SMTP',
+      date: '2018-11-18',
+      movie: 'qui saepe in',
       data: [],
       dates: [],
       dateIndex: {},
       filterDates: [],
       weekdates: [],
-      selected: '2018-10-24',
+      selected: '2018-11-18',
       pages: [],
       page: 1,
     };
@@ -28,7 +28,7 @@ class Calendar extends React.Component {
   }
 
   getData(day) {
-    fetch(`/api/moviesbyid/1/${day}/45.621,65.4567`)
+    fetch(`/api/moviesbyid/1364707/${day}/34.16,-116.35`)
       .then(res => res.json())
       .then((data) => {
         for (let i = 0; i < data.length; i += 1) {

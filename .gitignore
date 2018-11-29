@@ -1,3 +1,4 @@
+
 ## MAC files ##
 .DS_Store
 package-lock.json
@@ -28,6 +29,10 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+*.err*
+
+model-cql/import_*
 
 data/seedFileCreate.csv
 data/seedFileCreate1.csv
