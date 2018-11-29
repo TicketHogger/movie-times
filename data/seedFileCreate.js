@@ -5,7 +5,7 @@ const theater = ['Ocean View', '32 Chambers', 'Fremont Mall', 'Hollywood Dreams'
 const date =  ['2018-11-18', '2018-11-19', '2018-11-20', '2018-11-21', '2018-11-22', '2018-11-23', '2018-11-24'];
 const times = '{"11:00am":"11:00","5:30pm":"5:30","8:00pm":"8:00","10:30pm":"10:30"}';
 
-var stream = fs.createWriteStream(__dirname + '/seedFileCreate1.csv');
+var stream = fs.createWriteStream(__dirname + '/seedFileCreate2.csv');
 // var str = 'hogehogefugafugafoobarpiyo[';
 var i = 0;
 
@@ -17,7 +17,7 @@ write();
 
 function write() {
   
-  while (i < 20000000) { // 1Gtimes
+  while (i < 10000000) { // 1Gtimes
 
     const movieTimes = {};
     i++;
@@ -30,7 +30,7 @@ function write() {
     movieTimes.longitude = faker.address.longitude();
     movieTimes.times = times;
     movieTimes.movie_id = i;
-    if (!stream.write(`${movieTimes.movie}; ${movieTimes.theater}; ${movieTimes.address}; ${movieTimes.date}; ${movieTimes.latitude}; ${movieTimes.longitude}; ${movieTimes.times}; ${movieTimes.movie_id}\n`)) {
+    if (!stream.write(`${movieTimes.movie_id}; ${movieTimes.movie}; ${movieTimes.theater}; ${movieTimes.address}; ${movieTimes.date}; ${movieTimes.latitude}; ${movieTimes.longitude}; ${movieTimes.times}; ${movieTimes.movie_id}\n`)) {
       return;
     }
     

@@ -30,8 +30,8 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 const client = new Client({
-  user: 'rao',
-  host: 'localhost',
+  user: 'postgres',
+  host: '54.185.18.177',
   database: 'movietimesdb',
 });
 client.connect();
