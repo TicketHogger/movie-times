@@ -15,7 +15,11 @@ const pool = new Pool({
   host: '54.185.18.177',
   database: 'movietimesdb',
 });
-
+// const pool = new Pool({
+//   user: 'rao',
+//   host: 'localhost',
+//   database: 'movietimesdb',
+// });
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
     console.log('error from server.js line 21>>>', err);
