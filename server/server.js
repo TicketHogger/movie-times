@@ -76,7 +76,8 @@ app.get('/api/movies/:movieid/:date/:location', (req, res) => {
         newResult.push(result[i]);
       }
     }
-    res.send(newResult);
+    res.send(result);
+    // res.send(newResult);
   });
 });
 
