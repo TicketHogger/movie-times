@@ -53,9 +53,6 @@ app.use(express.static(path.join(__dirname +'./../public')));
 app.use(morgan("default"));
 
 app.get('/loaderio-8e54bc886c23a09d4db9d2070321dcda', (req, res) => {
-  if (error) {
-    res.send(error);
-  }
   res.send('loaderio-8e54bc886c23a09d4db9d2070321dcda');
 })
 
