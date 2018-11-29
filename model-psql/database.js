@@ -11,10 +11,33 @@
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-  user: 'rao',
-  host: 'localhost',
+  user: 'postgres',
+  host: '54.185.18.177',
+  password: 'password',
+  port:'5432',
   database: 'movietimesdb',
 });
+
+// const pool = new Pool({
+//   user: 'rao',
+//   host: 'localhost',
+//   database: 'movietimesdb',
+// });
+
+const client = new Client({
+  user: 'postgres',
+  host: '54.185.18.177',
+  password: 'password',
+  port:'5432',
+  database: 'movietimesdb',
+});
+client.connect();
+
+// const client = new Client({
+//   user: 'rao',
+//   host: 'localhost',
+//   database: 'movietimesdb',
+// });
 
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
@@ -25,12 +48,9 @@ pool.query('SELECT NOW()', (err, res) => {
   pool.end();
 });
 
-const client = new Client({
-  user: 'rao',
-  host: 'localhost',
-  database: 'movietimesdb',
-});
+
 client.connect();
+
 
 //***** DATABASE METHODS */
 

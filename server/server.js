@@ -12,7 +12,9 @@ const { Pool, Client } = require('pg');
 
 const pool = new Pool({
   user: 'postgres',
+  password: 'password',
   host: '54.185.18.177',
+  port:'5432',
   database: 'movietimesdb',
 });
 // const pool = new Pool({
@@ -32,6 +34,8 @@ pool.query('SELECT NOW()', (err, res) => {
 const client = new Client({
   user: 'postgres',
   host: '54.185.18.177',
+  port:'5432',
+  password: 'password',
   database: 'movietimesdb',
 });
 client.connect();
@@ -47,6 +51,13 @@ client.connect();
 app.use(parser.json());
 app.use(express.static(path.join(__dirname +'./../public')));
 app.use(morgan("default"));
+
+app.get('loaderio-8e54bc886c23a09d4db9d2070321dcda', (req, res) => {
+  if (error) {
+    res.send(error);
+  }
+  res.send('loaderio-8e54bc886c23a09d4db9d2070321dcda');
+})
 
 app.get('/api/movies/:movieid/:date/:location', (req, res) => {
   console.log(client);
@@ -89,7 +100,9 @@ app.get('/api/moviesbyid/:movieid/:date/:location', (req, res) => {
         newResult.push(result[i]);
       }
     }
-    res.send(newResult);
+    console.log(result);
+    // res.send(newResult);
+    res.send(result);
   });
 });
 
